@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Grid Topology</title>
+  <link rel="stylesheet" href="topology v2.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  <script defer src="topology2.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="top-bar">
+  <div class="header-left">
+    <div class="logo">📊</div>
+    <h1>GridDefense – Network Topology</h1>
+  </div>
+  <nav class="nav-menu">
+     <a href="index.html" class="nav-item">Dashboard</a>
+    <a href="topology.html" class="nav-item">Topology</a>
+    <a href="alerts.html" class="nav-item">Alerts</a>
+    <a href="ai-detection.html" class="nav-item">AI Anomaly Detection</a>
+    <a href="pmu monitoring.html" class="nav-item">PMU Monitoring</a>
+    <a href="settings.html" class="nav-item">Settings</a>
+  </nav>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+  <div class="topo-container">
+    <div class="topo-main">
+      <div class="topo-header">
+        <h2>Network Topology</h2>
+        <div class="topo-controls">
+          <button class="topo-btn" onclick="resetNetworkView()">Reset View</button>
+          <button class="topo-btn" onclick="fitNetworkView()">Fit All</button>
+        </div>
+      </div>
+      <div id="network" class="network-graph"></div>
+    </div>
+
+    <!-- SIDEBAR INFO -->
+    <div class="topo-sidebar">
+      <div id="nodePanel" class="sidebar-panel">
+        <h3>Selected Node</h3>
+        <div id="nodePanelContent" class="node-info">
+          <div class="empty-message">Click on a node to view details</div>
+        </div>
+      </div>
+
+      <div class="sidebar-panel stats">
+        <h3>Network Stats</h3>
+        <div class="stat-box green">
+          <div class="stat-number">128</div>
+          <div class="stat-label">Normal Nodes</div>
+        </div>
+        <div class="stat-box yellow">
+          <div class="stat-number">14</div>
+          <div class="stat-label">Suspicious</div>
+        </div>
+        <div class="stat-box red">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Anomalies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Anomaly Detection</title>
+<link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="ad.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="ai-detection.js"></script>
+</head>
+
+<body>
+
+<!-- HEADER WITH NAV -->
+<div class="top-bar">
+  <div class="header-left">
+    <div class="logo">📊</div>
+    <h1>GridDefense – AI Anomaly Detection</h1>
+  </div>
+  <nav class="nav-menu">
+   <a href="index.html" class="nav-item">Dashboard</a>
+    <a href="topology.html" class="nav-item">Topology</a>
+    <a href="alerts.html" class="nav-item">Alerts</a>
+    <a href="ai-detection.html" class="nav-item">AI Anomaly Detection</a>
+    <a href="pmu monitoring.html" class="nav-item">PMU Monitoring</a>
+    <a href="settings.html" class="nav-item">Settings</a>
+  </nav>
+</div>
+
+<!-- AI DETECTION MAIN CONTENT -->
+<div class="ai-detection-container">
+
+  <!-- PAGE HEADER -->
+  <div class="ai-detection-header">
+    <h2>CNN-LSTM Model Analysis & Threat Detection</h2>
+  </div>
+
+  <!-- SECTION TITLE -->
+  <div class="ai-section-title">
+    <h3>The Model Output</h3>
+  </div>
+
+  <!-- MAIN GRID - 3 COLUMNS -->
+  <div class="ai-main-grid">
+
+    <!-- LEFT PANEL - PREDICTION SUMMARY -->
+    <div class="ai-card prediction-panel">
+      <h3>Prediction Summary</h3>
+      
+      <div class="summary-item">
+        <span class="summary-label">Status:</span>
+        <span class="summary-value status-attack" id="predictionStatus">Attack Detected</span>
+      </div>
+
+      <div class="summary-item">
+        <span class="summary-label">Type:</span>
+        <span class="summary-value" id="attackType">Replay Attack</span>
+      </div>
+
+      <div class="summary-item">
+        <span class="summary-label">Attack Probability</span>
+        <div class="probability-container">
+          <div class="probability-bar attack" id="attackBar">
+            <span class="probability-value" id="attackProb">89%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-item">
+        <span class="summary-label">Normal Probability</span>
+        <div class="probability-container">
+          <div class="probability-bar normal" id="normalBar">
+            <span class="probability-value" id="normalProb">11%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-action acknowledge">Acknowledge</button>
+        <button class="btn-action investigate">Investigate</button>
+      </div>
+    </div>
+
+    <!-- CENTER PANEL - ANOMALY DETECTION CHART -->
+    <div class="ai-card anomaly-panel">
+      <h3>Anomaly Detection</h3>
+      <canvas id="anomalyChart"></canvas>
+      <div class="chart-labels">
+        <span class="chart-label suspicious">⚠ Suspicious</span>
+        <span class="chart-label anomaly">● Anomalies</span>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL - EXPLAINABLE AI -->
+    <div class="ai-card explainable-panel">
+      <h3>Key Contributing Factors</h3>
+      
+      <div class="factor-item">
+        <div class="factor-header">
+          <span class="factor-name">Sequence Deviation</span>
+          <span class="factor-badge high">High Impact</span>
+        </div>
+        <div class="factor-bar-wrapper">
+          <div class="factor-bar" style="width: 92%; background: linear-gradient(90deg, #ff3b3b, #ff6666);"></div>
+        </div>
+      </div>
+
+      <div class="factor-item">
+        <div class="factor-header">
+          <span class="factor-name">Signal Drift</span>
+          <span class="factor-badge moderate">Moderate Impact</span>
+        </div>
+        <div class="factor-bar-wrapper">
+          <div class="factor-bar" style="width: 68%; background: linear-gradient(90deg, #ffcc00, #ffd700);"></div>
+        </div>
+      </div>
+
+      <div class="factor-item">
+        <div class="factor-header">
+          <span class="factor-name">Temporal Pattern</span>
+          <span class="factor-badge moderate">Moderate Impact</span>
+        </div>
+        <div class="factor-bar-wrapper">
+          <div class="factor-bar" style="width: 65%; background: linear-gradient(90deg, #ffcc00, #ffd700);"></div>
+        </div>
+      </div>
+
+      <div class="factor-item">
+        <div class="factor-header">
+          <span class="factor-name">Amplitude Spike</span>
+          <span class="factor-badge low">Low Impact</span>
+        </div>
+        <div class="factor-bar-wrapper">
+          <div class="factor-bar" style="width: 35%; background: linear-gradient(90deg, #00e5ff, #00ff88);"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ANALYSIS TABS -->
+  <div class="ai-tabs-section">
+    <div class="tabs-header">
+      <button class="tab-button active" data-tab="cnn">CNN Analysis</button>
+      <button class="tab-button" data-tab="lstm">LSTM Analysis</button>
+      <button class="tab-button" data-tab="explanation">Anomaly Explanation</button>
+    </div>
+
+    <div class="tab-content active" id="cnn-tab">
+      <p>Convolutional Neural Network detected spatial anomalies in voltage and frequency patterns. Primary features: sudden spikes, pattern deviations.</p>
+    </div>
+
+    <div class="tab-content" id="lstm-tab">
+      <p>Long Short-Term Memory identified temporal inconsistencies. The model flagged unusual sequence patterns over the past 30 samples.</p>
+    </div>
+
+    <div class="tab-content" id="explanation-tab">
+      <p id="anomalyExplanation">Detected Replay Attack based on temporal sequence and signal drift anomalies.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

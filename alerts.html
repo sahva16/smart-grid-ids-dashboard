@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Grid Alerts</title>
+  <link rel="stylesheet" href="alert.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  <script defer src="alerts.js"></script>
+</head>
+
+<body>
+
+<!-- HEADER WITH NAV -->
+<div class="top-bar">
+  <div class="header-left">
+    <div class="logo">📊</div>
+    <h1>GridDefense – Security Alerts</h1>
+  </div>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-item">Dashboard</a>
+    <a href="topology.html" class="nav-item">Topology</a>
+    <a href="alerts.html" class="nav-item">Alerts</a>
+    <a href="ai-detection.html" class="nav-item">AI Anomaly Detection</a>
+    <a href="pmu monitoring.html" class="nav-item">PMU Monitoring</a>
+    <a href="settings.html" class="nav-item">Settings</a>
+  </nav>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="alerts-layout">
+
+  <!-- LEFT PANEL -->
+  <div class="alerts-left">
+    <section class="alert-panel">
+      <h2>Alert Details</h2>
+
+      <div class="alert-info">
+        <div class="alert-row">
+          <span class="alert-label">Timestamp:</span>
+          <span class="alert-value">14:32:05 on 2024-04-15</span>
+        </div>
+        <div class="alert-row">
+          <span class="alert-label">Node:</span>
+          <span class="alert-value">PMU 3</span>
+        </div>
+        <div class="alert-row">
+          <span class="alert-label">Attack Type:</span>
+          <span class="alert-value">FDIA (False Data Injection)</span>
+        </div>
+        <div class="alert-row">
+          <span class="alert-label">Confidence Score:</span>
+          <div class="confidence-bar">
+            <div class="confidence-fill" style="width: 92%">92%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert-actions">
+        <button class="btn btn-secondary">Acknowledge</button>
+        <button class="btn btn-primary">Investigate</button>
+      </div>
+    </section>
+
+    <!-- EVENT LOGS -->
+    <section class="alert-panel">
+      <h2>Event Logs</h2>
+      <table class="event-table">
+        <tr>
+          <th>Timestamp</th>
+          <th>Event</th>
+          <th>Value</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>14:31:58</td>
+          <td>Voltage Anomaly Detected</td>
+          <td>112.8 kV</td>
+          <td><span class="badge anomalous">Anomalous</span></td>
+        </tr>
+        <tr>
+          <td>14:31:45</td>
+          <td>Phase Angle Shift</td>
+          <td>9.2°</td>
+          <td><span class="badge suspect">Suspect</span></td>
+        </tr>
+        <tr>
+          <td>14:31:30</td>
+          <td>FDIA Signature Identified</td>
+          <td>--</td>
+          <td><span class="badge compromised">Compromised</span></td>
+        </tr>
+        <tr>
+          <td>14:30:55</td>
+          <td>Data Mismatch Detected</td>
+          <td>--</td>
+          <td><span class="badge warning">Warning</span></td>
+        </tr>
+        <tr>
+          <td>14:30:20</td>
+          <td>Sync Loss Detected</td>
+          <td>--</td>
+          <td><span class="badge alert">Alert</span></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- INCIDENT SUMMARY -->
+    <section class="alert-panel incident-summary">
+      <div class="incident-content">
+        <span class="incident-icon">⚡</span>
+        <span class="incident-text">False Data Injection attack detected at PMU 7 with high confidence level.</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="alerts-right">
+    <!-- NETWORK VISUALIZATION -->
+    <div id="network" class="network-graph"></div>
+
+    <!-- INFO PANEL -->
+    <div class="info-panel">
+      <div class="info-content">
+        <h3>PMU 7 - Anomaly</h3>
+        <div class="info-item">
+          <span class="label">Voltage:</span>
+          <span class="value">112.5 kV</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Phase Angle Diff:</span>
+          <span class="value">8.4°</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Anomaly Score:</span>
+          <span class="value alert-red">92%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEHAVIOR DETECTION -->
+    <div class="behavior-panel">
+      <h3>Inconsistent Behavior Detected</h3>
+      <p>Compared to Neighboring Modes</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

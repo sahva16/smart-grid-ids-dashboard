@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMU Monitoring</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="charts1.js"></script>
+</head>
+
+<body>
+
+<!-- HEADER WITH NAV -->
+<div class="top-bar">
+  <div class="header-left">
+    <div class="logo">📊</div>
+    <h1>GridDefense – PMU Signal Monitoring</h1>
+  </div>
+  <nav class="nav-menu">
+    <a href="index.html" class="nav-item">Dashboard</a>
+    <a href="topology.html" class="nav-item">Topology</a>
+    <a href="alerts.html" class="nav-item">Alerts</a>
+    <a href="ai-detection.html" class="nav-item">AI Anomaly Detection</a>
+    <a href="pmu monitoring.html" class="nav-item">PMU Monitoring</a>
+    <a href="settings.html" class="nav-item">Settings</a>
+  </nav>
+</div>
+
+<!-- PMU MONITORING MAIN CONTENT -->
+<div class="pmu-monitoring-container">
+
+  <!-- HEADER SECTION -->
+  <div class="pmu-monitoring-header">
+    <div>
+      <h2>Live Signal Monitoring</h2>
+    </div>
+    <div class="pmu-status-badges">
+      <span class="status-badge sync">🟢 Live Data</span>
+      <span class="status-badge sync">IN SYNC</span>
+    </div>
+  </div>
+
+  <!-- METRICS ROW -->
+  <div class="pmu-metrics-row">
+    <div class="metric-card">
+      <h3>Voltage (kV)</h3>
+      <div class="metric-value" id="voltageValue">113.2</div>
+      <div class="metric-unit">kilovolt</div>
+    </div>
+    <div class="metric-card">
+      <h3>Frequency (Hz)</h3>
+      <div class="metric-value" id="frequencyValue">50.12</div>
+      <div class="metric-unit">hertz</div>
+    </div>
+    <div class="metric-card">
+      <h3>Phase Angle (°)</h3>
+      <div class="metric-value" id="phaseValue">2.45</div>
+      <div class="metric-unit">degrees</div>
+    </div>
+  </div>
+
+  <!-- CHARTS GRID -->
+  <div class="pmu-charts-grid">
+    <div class="pmu-chart-card">
+      <h3>Voltage (kV)</h3>
+      <canvas id="voltageChart"></canvas>
+    </div>
+
+    <div class="pmu-chart-card">
+      <h3>Frequency (Hz)</h3>
+      <canvas id="frequencyChart"></canvas>
+    </div>
+
+    <div class="pmu-chart-card">
+      <h3>Phase Angle Difference (°)</h3>
+      <canvas id="phaseChart"></canvas>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="pmu-sidebar-section">
+    <div class="pmu-sidebar-card">
+      <h3>System Health</h3>
+      <div class="health-metrics">
+        <div class="health-row">
+          <span class="health-label">Normal Signals</span>
+          <span class="health-value green">132</span>
+        </div>
+        <div class="health-row">
+          <span class="health-label">Suspicious</span>
+          <span class="health-value yellow">12</span>
+        </div>
+        <div class="health-row">
+          <span class="health-label">Anomalies</span>
+          <span class="health-value red">5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pmu-sidebar-card">
+      <h3>Key Factors</h3>
+      <div class="factor-list">
+        <div class="factor-row">
+          <span class="factor-label">Sequence Deviation</span>
+          <div class="factor-bar-wrapper">
+            <div class="factor-bar" style="width: 85%; background: #ff3b3b;"></div>
+          </div>
+        </div>
+        <div class="factor-row">
+          <span class="factor-label">Signal Drift</span>
+          <div class="factor-bar-wrapper">
+            <div class="factor-bar" style="width: 70%; background: #ffcc00;"></div>
+          </div>
+        </div>
+        <div class="factor-row">
+          <span class="factor-label">Temporal Pattern</span>
+          <div class="factor-bar-wrapper">
+            <div class="factor-bar" style="width: 65%; background: #ffcc00;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Grid IDS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="charts.js"></script>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="top-bar">
+  <div class="header-left">
+    <div class="logo">📊</div>
+    <h1>GridDefense – IDS Dashboard</h1>
+  </div>
+  <nav class="nav-menu">
+   <a href="index.html" class="nav-item">Dashboard</a>
+    <a href="topology.html" class="nav-item">Topology</a>
+    <a href="alerts.html" class="nav-item">Alerts</a>
+    <a href="ai-detection.html" class="nav-item">AI Anomaly Detection</a>
+    <a href="pmu monitoring.html" class="nav-item">PMU Monitoring</a>
+    <a href="settings.html" class="nav-item">Settings</a>
+  </nav>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+  <!-- LEFT SIDE -->
+  <div class="left">
+
+    <!-- VOLTAGE -->
+    <section class="panel large">
+      <div class="panel-header">
+        <h2>Voltage (kV)</h2>
+        <div class="status-horizontal">
+          <span class="status-item normal">● Normal</span>
+          <span class="status-item suspicious">▲ Suspicious</span>
+          <span class="status-item anomaly">● Anomaly</span>
+        </div>
+      </div>
+      <canvas id="voltageChart"></canvas>
+    </section>
+
+    <!-- NETWORK TRAFFIC -->
+    <section class="panel large">
+      <h2>Network Traffic</h2>
+      <canvas id="networkChart"></canvas>
+    </section>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="right">
+
+    <!-- SYSTEM STATUS -->
+    <section class="panel">
+      <h2>System Status</h2>
+
+      <div class="metric">
+        <span>CPU Usage</span><span class="metric-value">42%</span>
+      </div>
+      <div class="mini-bars" id="cpuBars"></div>
+
+      <div class="metric">
+        <span>Memory Usage</span><span class="metric-value">56%</span>
+      </div>
+      <div class="mini-bars" id="memBars"></div>
+    </section>
+
+    <!-- ALERTS -->
+    <section class="panel">
+      <h2>Active Alerts</h2>
+      <table>
+        <tr>
+          <th>Time</th><th>Node</th><th>Attack Type</th><th>Confidence</th>
+        </tr>
+        <tr>
+          <td>14:32:05</td><td>PMU 3</td><td>FDIA</td>
+          <td><div class="bar red" style="width:92%">92%</div></td>
+        </tr>
+        <tr>
+          <td>14:28:47</td><td>PMU 7</td><td>Replay Attack</td>
+          <td><div class="bar yellow" style="width:75%">75%</div></td>
+        </tr>
+        <tr>
+          <td>14:15:22</td><td>PMU 2</td><td>FDIA</td>
+          <td><div class="bar red" style="width:88%">88%</div></td>
+        </tr>
+        <tr>
+          <td>14:02:10</td><td>PMU 5</td><td>Data Injection</td>
+          <td><div class="bar yellow" style="width:64%">64%</div></td>
+        </tr>
+      </table>
+    </section>
+
+  </div>
+
+</div>
+
+<!-- FULL WIDTH ANOMALY DETECTION -->
+<div class="full-width-section">
+  <section class="panel large">
+    <h2>Anomaly Detection</h2>
+    <canvas id="anomalyChart"></canvas>
+  </section>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <div class="card green">
+    <div class="card-icon">✓</div>
+    <div class="card-label">Normal</div>
+    <div class="card-value">128 Nodes</div>
+  </div>
+  <div class="card yellow">
+    <div class="card-icon">⚠</div>
+    <div class="card-label">Suspicious</div>
+    <div class="card-value">14 Nodes</div>
+  </div>
+  <div class="card red">
+    <div class="card-icon">●</div>
+    <div class="card-label">Anomaly</div>
+    <div class="card-value">5 Nodes</div>
+  </div>
+</div>
+
+</body>
+</html>

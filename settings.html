@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Configuration</title>
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="settings.js"></script>
+</head>
+
+<body>
+
+<!-- HEADER WITH NAV -->
+<div class="top-bar">
+  <div class="header-left">
+    <div class="logo">📊</div>
+    <h1>GridDefense – System Configuration</h1>
+  </div>
+  <nav class="nav-menu">
+     <a href="index.html" class="nav-item">Dashboard</a>
+    <a href="alerts.html" class="nav-item">Alerts</a>
+    <a href="topology.html" class="nav-item">Topology</a>
+    <a href="ai-detection.html" class="nav-item">AI Anomaly Detection</a>
+    <a href="pmu monitoring.html" class="nav-item">PMU Monitoring</a>
+    <a href="settings.html" class="nav-item">Settings</a>
+  </nav>
+</div>
+
+<!-- SETTINGS MONITORING MAIN CONTENT -->
+<div class="pmu-monitoring-container">
+
+  <!-- HEADER SECTION -->
+  <div class="pmu-monitoring-header">
+    <div>
+      <h2>Detection Thresholds & Security Settings</h2>
+    </div>
+    <div class="pmu-status-badges">
+      <span class="status-badge sync">🟢 Live Data</span>
+      <span class="status-badge sync">IN SYNC</span>
+    </div>
+  </div>
+
+  <!-- CHARTS GRID -->
+  <div class="pmu-charts-grid">
+    <div class="pmu-chart-card">
+      <h3>Voltage Detection Pattern</h3>
+      <canvas id="voltageChart"></canvas>
+    </div>
+
+    <div class="pmu-chart-card">
+      <h3>Frequency Detection Pattern</h3>
+      <canvas id="frequencyChart"></canvas>
+    </div>
+
+
+  <!-- SIDEBAR SECTION -->
+  <div class="pmu-sidebar-section">
+    
+    <!-- PMU CONFIGURATION CARD -->
+    <div class="pmu-sidebar-card">
+      <h3>PMU Configuration</h3>
+      <table class="config-table">
+        <thead>
+          <tr>
+            <th>PMU ID</th>
+            <th>Status</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PMU 1</td>
+            <td><span class="status-indicator active">● Active</span></td>
+            <td>Substation A</td>
+          </tr>
+          <tr>
+            <td>PMU 2</td>
+            <td><span class="status-indicator offline">● Offline</span></td>
+            <td>Substation B</td>
+          </tr>
+          <tr>
+            <td>PMU 3</td>
+            <td><span class="status-indicator active">● Active</span></td>
+            <td>Substation C</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- USER ROLE MANAGEMENT CARD -->
+    <div class="pmu-sidebar-card">
+      <h3>User Role Management</h3>
+      <table class="config-table">
+        <thead>
+          <tr>
+            <th>User Role</th>
+            <th>Permissions</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Admin</td>
+            <td>Full Access</td>
+            <td>
+              <button class="btn btn-small btn-primary">Edit</button>
+              <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Operator</td>
+            <td>Limited Control</td>
+            <td>
+              <button class="btn btn-small btn-primary">Edit</button>
+              <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Viewer</td>
+            <td>View Only</td>
+            <td>
+              <button class="btn btn-small btn-primary">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SYSTEM HEALTH CARD -->
+    <div class="pmu-sidebar-card">
+      <h3>System Health</h3>
+      <div class="health-metrics">
+        <div class="health-row">
+          <span class="health-label">Normal Signals</span>
+          <span class="health-value green">132</span>
+        </div>
+        <div class="health-row">
+          <span class="health-label">Suspicious</span>
+          <span class="health-value yellow">12</span>
+        </div>
+        <div class="health-row">
+          <span class="health-label">Anomalies</span>
+          <span class="health-value red">5</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+</body>
+</html>
